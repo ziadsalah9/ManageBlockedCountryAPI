@@ -15,3 +15,4 @@ H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrast
 H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\refint\ManageBlockedCountry.Infrastructure.dll
 H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.pdb
 H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ref\ManageBlockedCountry.Infrastructure.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.sourcelink.json

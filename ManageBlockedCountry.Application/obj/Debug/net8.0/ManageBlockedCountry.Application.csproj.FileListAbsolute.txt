@@ -13,3 +13,4 @@ H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Applica
 H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\refint\ManageBlockedCountry.Application.dll
 H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.pdb
 H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ref\ManageBlockedCountry.Application.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.sourcelink.json

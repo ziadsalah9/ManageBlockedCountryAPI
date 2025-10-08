@@ -1,4 +1,6 @@
 
+using Hangfire;
+using Hangfire.MemoryStorage;
 using ManageBlockedCountry.Application.Interfaces;
 using ManageBlockedCountry.Application.Services;
 using ManageBlockedCountry.Infrastructure.ExternalApiIntegration;
@@ -15,8 +17,19 @@ namespace ManagedBlockedCountryApp
 
             builder.Services.AddSingleton<IBlockedCountry, BlockedCountryService>();
             builder.Services.AddHttpClient<ILocationOfCountry, LocationOfCountryService>();
+            builder.Services.AddSingleton<ITemporaryBlockedCountry, TemporaryBlockedCountryService>();
 
-//            builder.Services.AddHttpContextAccessor();
+
+            //            builder.Services.AddHttpContextAccessor();
+
+
+
+            //BackGrongJObs 
+            builder.Services.AddHangfire(config =>
+            {
+                config.UseMemoryStorage(); 
+            });
+            builder.Services.AddHangfireServer();
 
 
             builder.Services.AddControllers();
@@ -32,6 +45,14 @@ namespace ManagedBlockedCountryApp
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseHangfireDashboard("/jobs");
+
+            // Schedule recurring job every 5 minutes
+            RecurringJob.AddOrUpdate<ITemporaryBlockedCountry>(
+                        "clean-expired-temp-blocks",
+                            service => service.RemoveExpired(),
+                            "*/5 * * * *" 
+                  );
 
             app.UseHttpsRedirection();
 
