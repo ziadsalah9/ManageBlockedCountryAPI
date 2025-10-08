@@ -1,0 +1,17 @@
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\bin\Debug\net8.0\ManageBlockedCountry.Infrastructure.deps.json
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\bin\Debug\net8.0\ManageBlockedCountry.Infrastructure.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\bin\Debug\net8.0\ManageBlockedCountry.Infrastructure.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\bin\Debug\net8.0\ManageBlockedCountry.Application.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\bin\Debug\net8.0\ManageBlockedCountry.Domian.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\bin\Debug\net8.0\ManageBlockedCountry.Application.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\bin\Debug\net8.0\ManageBlockedCountry.Domian.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.csproj.AssemblyReference.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.AssemblyInfoInputs.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.AssemblyInfo.cs
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.csproj.CoreCompileInputs.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBl.C49F0438.Up2Date
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\refint\ManageBlockedCountry.Infrastructure.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ManageBlockedCountry.Infrastructure.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Infrastructure\obj\Debug\net8.0\ref\ManageBlockedCountry.Infrastructure.dll

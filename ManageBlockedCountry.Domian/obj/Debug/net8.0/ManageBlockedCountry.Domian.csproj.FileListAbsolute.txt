@@ -1,0 +1,11 @@
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\bin\Debug\net8.0\ManageBlockedCountry.Domian.deps.json
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\bin\Debug\net8.0\ManageBlockedCountry.Domian.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\bin\Debug\net8.0\ManageBlockedCountry.Domian.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\ManageBlockedCountry.Domian.GeneratedMSBuildEditorConfig.editorconfig
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\ManageBlockedCountry.Domian.AssemblyInfoInputs.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\ManageBlockedCountry.Domian.AssemblyInfo.cs
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\ManageBlockedCountry.Domian.csproj.CoreCompileInputs.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\ManageBlockedCountry.Domian.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\refint\ManageBlockedCountry.Domian.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\ManageBlockedCountry.Domian.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Domian\obj\Debug\net8.0\ref\ManageBlockedCountry.Domian.dll

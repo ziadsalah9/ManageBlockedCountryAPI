@@ -1,0 +1,15 @@
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\bin\Debug\net8.0\ManageBlockedCountry.Application.deps.json
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\bin\Debug\net8.0\ManageBlockedCountry.Application.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\bin\Debug\net8.0\ManageBlockedCountry.Application.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\bin\Debug\net8.0\ManageBlockedCountry.Domian.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\bin\Debug\net8.0\ManageBlockedCountry.Domian.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.csproj.AssemblyReference.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.GeneratedMSBuildEditorConfig.editorconfig
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.AssemblyInfoInputs.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.AssemblyInfo.cs
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.csproj.CoreCompileInputs.cache
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBl.AAC60EB1.Up2Date
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\refint\ManageBlockedCountry.Application.dll
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ManageBlockedCountry.Application.pdb
+H:\Assesment\ManageBlockedCountryAPI(BD-Assignment)\ManageBlockedCountry.Application\obj\Debug\net8.0\ref\ManageBlockedCountry.Application.dll
