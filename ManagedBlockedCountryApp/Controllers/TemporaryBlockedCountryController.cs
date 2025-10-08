@@ -35,7 +35,7 @@ namespace ManagedBlockedCountryApp.Controllers
                     });
 
                 }
-                return BadRequest($"Country {dto.countrycode} is already temporarily blocked.");
+                return Conflict($"Country {dto.countrycode} is already temporarily blocked.");
 
             }
             return BadRequest(ModelState);

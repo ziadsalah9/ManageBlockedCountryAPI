@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ManageBlockedCountry.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5204a235469c9740b74fc8d86ea5e28e3199c94e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d729d473c66486ca2b5e1c57e6ce442c62c5e420")]
 [assembly: System.Reflection.AssemblyProductAttribute("ManageBlockedCountry.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ManageBlockedCountry.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -53,7 +53,11 @@ namespace ManageBlockedCountry.Application.Services
 
             if(_TempBlocked.TryGetValue(code, out var expiredDateAt))
             {
-                if(DateTime.UtcNow<expiredDateAt) return true;
+                if (DateTime.UtcNow < expiredDateAt) {
+
+                    Console.WriteLine($"time remining  : {expiredDateAt.Minute-DateTime.UtcNow.Minute} Min");
+                    
+                    return true; }
 
                 _TempBlocked.TryRemove(code, out _);
 
@@ -68,6 +72,7 @@ namespace ManageBlockedCountry.Application.Services
             {
                 if (kvp.Value <= DateTime.UtcNow)
                     _TempBlocked.TryRemove(kvp.Key, out _);
+                Console.WriteLine($"{kvp.Key} is Unblocked");
             }
         }
     }

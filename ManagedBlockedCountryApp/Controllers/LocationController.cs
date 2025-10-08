@@ -12,6 +12,7 @@ namespace ManagedBlockedCountryApp.Controllers
 
 
         private readonly ILocationOfCountry _service;
+
         public LocationController(ILocationOfCountry service)
         {
             

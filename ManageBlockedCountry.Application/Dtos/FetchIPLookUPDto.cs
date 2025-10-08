@@ -14,6 +14,8 @@ namespace ManageBlockedCountry.Application.Dtos
         public string? City { get; set; }
         public string? Isp { get; set; }
         public bool IsBlocked { get; set; }
+        // "Permanent" | "Temporary" | "None"
+        public string BlockType { get; set; } = "None";
 
     }
 }

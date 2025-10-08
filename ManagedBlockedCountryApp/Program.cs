@@ -2,6 +2,7 @@
 using Hangfire;
 using Hangfire.MemoryStorage;
 using ManageBlockedCountry.Application.Interfaces;
+using ManageBlockedCountry.Application.Jobs;
 using ManageBlockedCountry.Application.Services;
 using ManageBlockedCountry.Infrastructure.ExternalApiIntegration;
 
@@ -48,11 +49,14 @@ namespace ManagedBlockedCountryApp
             app.UseHangfireDashboard("/jobs");
 
             // Schedule recurring job every 5 minutes
-            RecurringJob.AddOrUpdate<ITemporaryBlockedCountry>(
+            RecurringJob.AddOrUpdate<CalculateingtheReminingTimetoUnblock>(
                         "clean-expired-temp-blocks",
-                            service => service.RemoveExpired(),
-                            "*/5 * * * *" 
+                            service => service.Run(),
+                            Cron.Minutely
+
                   );
+
+           
 
             app.UseHttpsRedirection();
 
