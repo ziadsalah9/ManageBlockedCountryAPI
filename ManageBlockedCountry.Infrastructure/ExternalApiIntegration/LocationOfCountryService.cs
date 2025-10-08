@@ -1,8 +1,10 @@
 ﻿using ManageBlockedCountry.Application.Dtos;
 using ManageBlockedCountry.Application.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,15 +17,23 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
         private readonly HttpClient _httpClient;
         private readonly IBlockedCountry _blockedService;
         private readonly ITemporaryBlockedCountry _tempBlockedService;
+        private readonly IBlockedAttemptLog _blockedAttemptLog;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public LocationOfCountryService( IBlockedCountry blockedService,
-HttpClient httpClient,
-ITemporaryBlockedCountry tempBlockedService)
-        {
-            _httpClient = httpClient;
-            _blockedService = blockedService;
-            _tempBlockedService = tempBlockedService;
-        }
+
+        public LocationOfCountryService(  IBlockedCountry blockedService,
+                                          HttpClient httpClient,
+                                          ITemporaryBlockedCountry tempBlockedService ,
+                                          IBlockedAttemptLog blockedAttemptLog
+                                              , IHttpContextAccessor httpContext)
+                                        {
+                                            _httpClient = httpClient;
+                                            _blockedService = blockedService;
+                                            _tempBlockedService = tempBlockedService;
+                                            _blockedAttemptLog = blockedAttemptLog;
+                                             _httpContext = httpContext;
+
+                                        }
         public async Task<FetchIPLookUPDto> LookUp(string ip)
         {
             // GET https://ipapi.co/{ip}/{format}/
@@ -32,6 +42,8 @@ ITemporaryBlockedCountry tempBlockedService)
 
 
             var countryCode = result?["country_code"]?.ToString();
+            var userAgent = _httpContext.HttpContext?.Request.Headers["User-Agent"].ToString() ?? "Unknown";
+
 
             var isPermanentlyBlocked = _blockedService.IsBlocked(countryCode);
 
@@ -52,6 +64,17 @@ ITemporaryBlockedCountry tempBlockedService)
                 Blockedornot = true;
                 blockType = "Temporary";
             }
+
+
+
+            _blockedAttemptLog.LogAttempt(new BlockedAttemptLogDto
+            {
+                IpAddress = ip,
+                CountryCode = countryCode ?? "N/A",
+                BlockedStatus = isBlocked,
+                UserAgent = userAgent,
+                Timestamp = DateTime.UtcNow
+            });
 
             return new FetchIPLookUPDto
             {
@@ -97,6 +120,19 @@ ITemporaryBlockedCountry tempBlockedService)
                 result.BlockType = "None";
             }
             Console.WriteLine($"Checking block for country code: {countryCode}");
+           
+                var userAgent = _httpContext.HttpContext?.Request.Headers["User-Agent"].ToString();
+
+                _blockedAttemptLog.LogAttempt(new BlockedAttemptLogDto
+                {
+                    IpAddress = result.ip ?? ip,
+                    CountryCode = countryCode ?? "Unknown",
+                    BlockedStatus = result.IsBlocked ,
+                    // BlockType = result.BlockType,
+                    Timestamp = DateTime.UtcNow,
+                    UserAgent = userAgent ?? "Unknown"
+                });
+            
             return result; 
 
             

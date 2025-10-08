@@ -19,9 +19,11 @@ namespace ManagedBlockedCountryApp
             builder.Services.AddSingleton<IBlockedCountry, BlockedCountryService>();
             builder.Services.AddHttpClient<ILocationOfCountry, LocationOfCountryService>();
             builder.Services.AddSingleton<ITemporaryBlockedCountry, TemporaryBlockedCountryService>();
+            builder.Services.AddSingleton<IBlockedAttemptLog, BlockedAttemptLogService>();
 
 
-            //            builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddHttpContextAccessor();
 
 
 
