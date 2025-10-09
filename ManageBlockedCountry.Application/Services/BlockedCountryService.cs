@@ -47,6 +47,27 @@ namespace ManageBlockedCountry.Application.Services
             return _blocked.Values.Select(p => new CountryDto (p.Code,p.Name)).ToList();
         }
 
+        public IEnumerable<CountryDto> GetAllAdv(int page, int pageSize, string? search = null)
+        {
+
+
+            var query = _blocked.Values.AsQueryable();
+
+            if(!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.ToLower();
+                query = query.Where(p => p.Code.ToLower().Contains(search) || p.Name.ToLower().Contains(search));
+            }
+            return query.Skip((page-1)*pageSize).Take(pageSize).Select(p=>new CountryDto { 
+          
+                Code = p.Code,
+                Name = p.Name,
+
+            }); 
+
+           
+        }
+
         public bool IsBlocked(string code)
         {
 

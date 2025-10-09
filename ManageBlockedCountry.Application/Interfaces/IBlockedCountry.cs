@@ -10,13 +10,14 @@ namespace ManageBlockedCountry.Application.Interfaces
     public interface IBlockedCountry
     {
 
-        void Add (CreateCountryDto createCountryDto);
-        void Remove (string code );
+        void Add(CreateCountryDto createCountryDto);
+        void Remove(string code);
 
         IEnumerable<CountryDto> GetAll();
-        CountryDto Get (string code );
+        CountryDto Get(string code);
 
-        bool IsBlocked ( string code );
+        bool IsBlocked(string code);
 
+        IEnumerable<CountryDto> GetAllAdv(int page, int pageSize, string? search = null);
     }
 }

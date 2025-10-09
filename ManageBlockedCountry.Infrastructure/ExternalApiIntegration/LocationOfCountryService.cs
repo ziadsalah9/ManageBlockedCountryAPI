@@ -1,9 +1,11 @@
 ﻿using ManageBlockedCountry.Application.Dtos;
 using ManageBlockedCountry.Application.Interfaces;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
@@ -95,6 +97,20 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
 
         public async Task <FetchCountryLookupUsingIPGeolocation> LookUPwithGeolocation(string ip)
         {
+
+
+            // if user dosent send ip --> ip is nullorempty 
+
+            if (string.IsNullOrWhiteSpace(ip))
+            {
+                ip = _httpContext.HttpContext?.Connection?.RemoteIpAddress?.ToString();
+            }
+            // Validate IP format
+            if (!IPAddress.TryParse(ip, out _))
+            {
+                throw new ArgumentException("Invalid IP address format");
+            }
+
 
             var result = await _httpClient.GetFromJsonAsync<FetchCountryLookupUsingIPGeolocation>($"https://ipwho.is/{ip}");
 

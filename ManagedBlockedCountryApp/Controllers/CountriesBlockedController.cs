@@ -1,5 +1,6 @@
 ﻿using ManageBlockedCountry.Application.Dtos;
 using ManageBlockedCountry.Application.Interfaces;
+using ManageBlockedCountry.Application.Services;
 using ManageBlockedCountry.Domian.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -73,6 +74,14 @@ namespace ManagedBlockedCountryApp.Controllers
         public IActionResult IsBlocked(string code)
         {
             return Ok(new { ip=code, blocked = _service.IsBlocked(code) });
+        }
+
+
+        [HttpGet("blocked")]
+        public IActionResult GetBlockedCountries([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? search = null)
+        {
+            var result = _service.GetAllAdv(page, pageSize, search);
+            return Ok(result);
         }
 
 
