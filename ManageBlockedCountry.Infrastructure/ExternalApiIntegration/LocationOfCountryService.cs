@@ -17,6 +17,7 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
     public class LocationOfCountryService : ILocationOfCountry
     {
 
+
         private readonly HttpClient _httpClient;
         private readonly IBlockedCountry _blockedService;
         private readonly ITemporaryBlockedCountry _tempBlockedService;
@@ -149,8 +150,8 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
 
 
         }
-   
 
+        #region Look up with GeolLocation 
         public async Task <Response <FetchCountryLookupUsingIPGeolocation>> LookUPwithGeolocation(string ip)
         {
 
@@ -288,6 +289,7 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
 
 
         }
+        #endregion
 
     }
 }
