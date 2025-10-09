@@ -11,7 +11,7 @@ namespace ManageBlockedCountry.Application.Interfaces
     {
         // via ip 
 
-        Task<FetchIPLookUPDto> LookUp(string ip);
-        Task<FetchCountryLookupUsingIPGeolocation> LookUPwithGeolocation(string ip);
+        Task<Response<FetchIPLookUPDto>> LookUp(string ip);
+        Task<Response <FetchCountryLookupUsingIPGeolocation>> LookUPwithGeolocation(string ip);
     }
 }

@@ -21,7 +21,7 @@ namespace ManagedBlockedCountryApp.Controllers
         }
 
         [HttpPost("block")]
-        public IActionResult Add([FromBody] CreateCountryDto dto)
+        public async Task<IActionResult> Add([FromBody] CreateCountryDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
@@ -31,7 +31,7 @@ namespace ManagedBlockedCountryApp.Controllers
             {
 
                
-                _service.Add(dto);
+               await _service.Add(dto);
 
                     return Ok("Added successfully.");
 
@@ -42,32 +42,26 @@ namespace ManagedBlockedCountryApp.Controllers
         }
 
         [HttpDelete("block/{counrtycode}")]
-        public IActionResult Delete(string counrtycode)
+        public async Task<ActionResult> Delete(string counrtycode)
             {
 
+            if (string.IsNullOrWhiteSpace(counrtycode))
+                return BadRequest("Country code cannot be null or empty.");
 
-            if (counrtycode is not null)
-            {
-                if (ModelState.IsValid)
-                {
-                    _service.Remove(counrtycode);
-                    return Ok($"{counrtycode} is removed successfully ");
+            var existing = _service.Get(counrtycode);
+            if (existing == null)
+                return BadRequest($"Country '{counrtycode}' not found.");
 
+            await _service.Remove(counrtycode);
+            return Ok($"{counrtycode} has been removed successfully.");
 
-                }
-                else
-                    return
-                        StatusCode(404,"return valid code ");
-            }
-            else { return BadRequest("code cant be null "); }
-
-            }
+        }
 
 
         [HttpGet("blocked/getAll")]
-        public IActionResult GetAll()
+        public async Task<ActionResult>GetAll()
         {
-            return Ok(_service.GetAll());
+            return Ok(await _service.GetAll());
         }
 
         [HttpGet("isblocked/{code}")]
@@ -78,9 +72,9 @@ namespace ManagedBlockedCountryApp.Controllers
 
 
         [HttpGet("blocked")]
-        public IActionResult GetBlockedCountries([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? search = null)
+        public ActionResult GetBlockedCountries([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? search = null)
         {
-            var result = _service.GetAllAdv(page, pageSize, search);
+            var result =  _service.GetAllAdv(page, pageSize, search);
             return Ok(result);
         }
 

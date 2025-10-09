@@ -5,6 +5,7 @@ using ManageBlockedCountry.Application.Interfaces;
 using ManageBlockedCountry.Application.Jobs;
 using ManageBlockedCountry.Application.Services;
 using ManageBlockedCountry.Infrastructure.ExternalApiIntegration;
+using ManageBlockedCountry.Infrastructure.Middlewares;
 
 namespace ManagedBlockedCountryApp
 {
@@ -41,6 +42,8 @@ namespace ManagedBlockedCountryApp
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            app.UseMiddleware<ErrorHandling>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

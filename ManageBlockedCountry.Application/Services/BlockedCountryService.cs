@@ -16,7 +16,7 @@ namespace ManageBlockedCountry.Application.Services
         private readonly ConcurrentDictionary<string, Country> _blocked
             = new ConcurrentDictionary<string, Country>();
 
-        public void Add(CreateCountryDto createCountryDto)
+        public Task Add(CreateCountryDto createCountryDto)
         {
             
    var code = createCountryDto.Code.Trim().ToUpperInvariant();
@@ -25,7 +25,8 @@ namespace ManageBlockedCountry.Application.Services
                 ,Name=createCountryDto.Name ?? code}
 
                 );
-           
+            return Task.CompletedTask;
+
         }
 
         public CountryDto Get(string code)
@@ -41,10 +42,16 @@ namespace ManageBlockedCountry.Application.Services
 
         }
 
-        public IEnumerable<CountryDto> GetAll()
+        public Task <IEnumerable<CountryDto>> GetAll()
         {
 
-            return _blocked.Values.Select(p => new CountryDto (p.Code,p.Name)).ToList();
+            //return _blocked.Values.Select(p => new CountryDto (p.Code,p.Name)).ToList();
+            var countries = _blocked.Values
+                    .Select(p => new CountryDto(p.Code, p.Name))
+                    .ToList();
+            return Task.FromResult<IEnumerable<CountryDto>>(countries);
+
+
         }
 
         public IEnumerable<CountryDto> GetAllAdv(int page, int pageSize, string? search = null)
@@ -75,10 +82,13 @@ namespace ManageBlockedCountry.Application.Services
 
         }
 
-        public void Remove(string code)
+        public Task Remove(string code)
         {
+            if (string.IsNullOrWhiteSpace(code))
+                return Task.CompletedTask;
 
-           _blocked.TryRemove(code.Trim().ToUpperInvariant(), out _);
+            _blocked.TryRemove(code.Trim().ToUpperInvariant(), out _);
+            return Task.CompletedTask;
 
 
         }

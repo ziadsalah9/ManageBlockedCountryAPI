@@ -1,4 +1,5 @@
-﻿using ManageBlockedCountry.Application.Dtos;
+﻿using ManageBlockedCountry.Application;
+using ManageBlockedCountry.Application.Dtos;
 using ManageBlockedCountry.Application.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -36,66 +37,121 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
                                              _httpContext = httpContext;
 
                                         }
-        public async Task<FetchIPLookUPDto> LookUp(string ip)
+
+        public async Task<Response<FetchIPLookUPDto>> LookUp(string ip)
         {
             // GET https://ipapi.co/{ip}/{format}/
 
-            var result = await _httpClient.GetFromJsonAsync<Dictionary<string, object>>($"https://ipapi.co/{ip}/json/");
 
-
-            var countryCode = result?["country_code"]?.ToString();
-            var userAgent = _httpContext.HttpContext?.Request.Headers["User-Agent"].ToString() ?? "Unknown";
-
-
-            var isPermanentlyBlocked = _blockedService.IsBlocked(countryCode);
-
-            var isTemporarilyBlocked = _tempBlockedService.isTemporaryBlocked(countryCode);
-
-            var isBlocked = isPermanentlyBlocked || isTemporarilyBlocked;
-
-            string blockType = "None";
-            bool Blockedornot = false;
-
-            if (isPermanentlyBlocked)
+            try
             {
-                Blockedornot = true;
-                blockType = "Permanent";
+                var response = await _httpClient.GetAsync($"https://ipapi.co/{ip}/json/");
+
+
+                if (response.StatusCode == HttpStatusCode.TooManyRequests)
+                {
+                    return new Response<FetchIPLookUPDto>
+                    {
+                        StatusCode = 429,
+                        Message = "Rate limit exceeded (429)",
+                        Data = null
+                    };
+                }
+
+                response.EnsureSuccessStatusCode();
+
+
+                var result = await response.Content.ReadFromJsonAsync<Dictionary<string, object>>();
+
+
+
+
+                var countryCode = result?["country_code"]?.ToString();
+                var userAgent = _httpContext.HttpContext?.Request.Headers["User-Agent"].ToString() ?? "Unknown";
+
+
+                var isPermanentlyBlocked = _blockedService.IsBlocked(countryCode);
+
+                var isTemporarilyBlocked = _tempBlockedService.isTemporaryBlocked(countryCode);
+
+                var isBlocked = isPermanentlyBlocked || isTemporarilyBlocked;
+
+                string blockType = "None";
+                bool Blockedornot = false;
+
+                if (isPermanentlyBlocked)
+                {
+                    Blockedornot = true;
+                    blockType = "Permanent";
+                }
+                else if (isTemporarilyBlocked)
+                {
+                    Blockedornot = true;
+                    blockType = "Temporary";
+                }
+
+
+
+                _blockedAttemptLog.LogAttempt(new BlockedAttemptLogDto
+                {
+                    IpAddress = ip,
+                    CountryCode = countryCode ?? "N/A",
+                    BlockedStatus = isBlocked,
+                    UserAgent = userAgent,
+                    Timestamp = DateTime.UtcNow
+                });
+
+
+                var dto = new FetchIPLookUPDto()
+                {
+                    Ip = result?["ip"]?.ToString() ?? ip,
+                    Country = countryCode,
+                    CountryCode = result?["country_code"]?.ToString(),
+                    City = result?["city"]?.ToString(),
+                    Isp = result?["org"]?.ToString(),
+                    IsBlocked = isBlocked
+                    ,
+                    BlockType = blockType
+                };
+                return new Response<FetchIPLookUPDto> 
+                {
+                    Message ="fetched successfully !!",
+                    StatusCode=200,
+                    Data = dto
+                 
+
+                };
             }
-            else if (isTemporarilyBlocked)
-            {
-                Blockedornot = true;
-                blockType = "Temporary";
+            catch (Exception ex) {
+
+
+
+                return new Response<FetchIPLookUPDto>
+                {
+                    Message = ex.Message
+                    ,
+                    StatusCode = 429,
+
+                };
+
+                //return new FetchIPLookUPDto
+                //{
+                //    Ip = ip,
+                //    Country = "Unknown",
+                //    CountryCode = "N/A",
+                //    City = "N/A",
+                //    Isp = "N/A",
+                //    IsBlocked = false,
+                //    BlockType = "None"
+                //};
             }
-
-
-
-            _blockedAttemptLog.LogAttempt(new BlockedAttemptLogDto
-            {
-                IpAddress = ip,
-                CountryCode = countryCode ?? "N/A",
-                BlockedStatus = isBlocked,
-                UserAgent = userAgent,
-                Timestamp = DateTime.UtcNow
-            });
-
-            return new FetchIPLookUPDto
-            {
-                Ip = result?["ip"]?.ToString() ?? ip,
-                Country = countryCode,
-                CountryCode = result?["country_code"]?.ToString(),
-                City = result?["city"]?.ToString(),
-                Isp = result?["org"]?.ToString(),
-                IsBlocked = isBlocked
-                ,
-                BlockType = blockType
-
-            };
          
 
+
         }
+   
 
-
-        public async Task <FetchCountryLookupUsingIPGeolocation> LookUPwithGeolocation(string ip)
+        public async Task <Response <FetchCountryLookupUsingIPGeolocation>> LookUPwithGeolocation(string ip)
         {
 
 
@@ -104,7 +160,36 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
             if (string.IsNullOrWhiteSpace(ip))
             {
                 ip = _httpContext.HttpContext?.Connection?.RemoteIpAddress?.ToString();
+
+                return new Response<FetchCountryLookupUsingIPGeolocation>
+                {
+                    StatusCode = 400,
+                    Message = "Invalid IP address format.",
+                    Data = null
+                };
             }
+
+            // convert ipv4->ipv4
+            if (IPAddress.TryParse(ip, out var parsedIp))
+            {
+                if (ip.StartsWith("::ffff:") || ip.StartsWith("192.") || ip.StartsWith("10.") || ip.StartsWith("172."))
+                {
+                    return new Response<FetchCountryLookupUsingIPGeolocation>
+                    {
+                        StatusCode = 400,
+                        Message = "Private or local IP addresses are not supported.",
+                        Data = null
+                    };
+                }
+                //if (parsedIp.IsIPv4MappedToIPv6)
+                //{
+                //    ip = parsedIp.MapToIPv4().ToString();
+
+                //    Console.WriteLine($"ip is -> {ip}");
+                //}
+            }
+
+
             // Validate IP format
             if (!IPAddress.TryParse(ip, out _))
             {
@@ -112,11 +197,53 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
             }
 
 
-            var result = await _httpClient.GetFromJsonAsync<FetchCountryLookupUsingIPGeolocation>($"https://ipwho.is/{ip}");
+            HttpResponseMessage response;
+            try
+            {
+
+                 response = await _httpClient.GetAsync($"https://ipwho.is/{ip}");
+
+
+                if (response.StatusCode == HttpStatusCode.TooManyRequests)
+                {
+                    return new Response<FetchCountryLookupUsingIPGeolocation>
+                    {
+                        StatusCode = 429,
+                        Message = "Rate limit exceeded. Please try again later.",
+                        Data = null
+                    };
+                }
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response<FetchCountryLookupUsingIPGeolocation>
+                    {
+                        StatusCode = (int)response.StatusCode,
+                        Message = $"Failed to fetch IP details. Status: {response.StatusCode}",
+                        Data = null
+                    };
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Network error occurred while contacting the IP API.", ex);
+            }
+
+            //  var result = await _httpClient.GetFromJsonAsync<FetchCountryLookupUsingIPGeolocation>($"https://ipwho.is/{ip}");
+            var result = await response.Content.ReadFromJsonAsync<FetchCountryLookupUsingIPGeolocation>();
+
+
 
             if (result == null)
-                throw new Exception("Failed to fetch IP details");
-            //var isblocked = _blockedService?.IsBlocked(result.country_code);
+                return new Response<FetchCountryLookupUsingIPGeolocation>
+                {
+                    StatusCode = 500,
+                    Message = "Failed to parse IP details response.",
+                    Data = null
+                };            //var isblocked = _blockedService?.IsBlocked(result.country_code);
+
+            //if (result2.StatusCode == HttpStatusCode.TooManyRequests)
+            //    throw new Exception("Rate limit exceeded. Please try again later.");
+
             var countryCode = result.country_code?.Trim()?.ToUpperInvariant();
 
             var isBlocked = _blockedService.IsBlocked(countryCode);
@@ -148,10 +275,17 @@ namespace ManageBlockedCountry.Infrastructure.ExternalApiIntegration
                     Timestamp = DateTime.UtcNow,
                     UserAgent = userAgent ?? "Unknown"
                 });
-            
-            return result; 
 
-            
+
+
+
+            return new Response<FetchCountryLookupUsingIPGeolocation>
+            {
+                StatusCode = 200,
+                Message = "Fetched successfully.",
+                Data = result
+            };
+
 
         }
 
