@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{77A44328-F05E-4F0B-A89F-507D12ADD146}|ManagedBlockedCountryApp\\ManagedBlockedCountryApp.csproj|h:\\assesment\\manageblockedcountryapi(bd-assignment)\\managedblockedcountryapp\\controllers\\ipcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A44328-F05E-4F0B-A89F-507D12ADD146}|ManagedBlockedCountryApp\\ManagedBlockedCountryApp.csproj|solutionrelative:managedblockedcountryapp\\controllers\\ipcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{92B7687A-CC53-4EA4-A682-BC472B16E361}|ManageBlockedCountry.Tests\\ManageBlockedCountry.Tests.csproj|h:\\assesment\\manageblockedcountryapi(bd-assignment)\\manageblockedcountry.tests\\blockedcountryservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92B7687A-CC53-4EA4-A682-BC472B16E361}|ManageBlockedCountry.Tests\\ManageBlockedCountry.Tests.csproj|solutionrelative:manageblockedcountry.tests\\blockedcountryservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -79,19 +83,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ipController.cs",
+              "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManagedBlockedCountryApp\\Controllers\\ipController.cs",
+              "RelativeDocumentMoniker": "ManagedBlockedCountryApp\\Controllers\\ipController.cs",
+              "ToolTip": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManagedBlockedCountryApp\\Controllers\\ipController.cs*",
+              "RelativeToolTip": "ManagedBlockedCountryApp\\Controllers\\ipController.cs*",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAG4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T19:11:29.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "BlockedCountryServiceTests.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Tests\\BlockedCountryServiceTests.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Tests\\BlockedCountryServiceTests.cs",
-              "ToolTip": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Tests\\BlockedCountryServiceTests.cs*",
-              "RelativeToolTip": "ManageBlockedCountry.Tests\\BlockedCountryServiceTests.cs*",
-              "ViewState": "AgIAADgAAAAAAAAAAAAgwEQAAABXAAAAAAAAAA==",
+              "ToolTip": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Tests\\BlockedCountryServiceTests.cs",
+              "RelativeToolTip": "ManageBlockedCountry.Tests\\BlockedCountryServiceTests.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T17:48:28.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManagedBlockedCountryApp\\Program.cs",
               "RelativeDocumentMoniker": "ManagedBlockedCountryApp\\Program.cs",
@@ -103,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "CountryCodeAttribute.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\Validation\\CountryCodeAttribute.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\Validation\\CountryCodeAttribute.cs",
@@ -115,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "IBlockedCountry.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\Interfaces\\IBlockedCountry.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\Interfaces\\IBlockedCountry.cs",
@@ -123,12 +140,11 @@
               "RelativeToolTip": "ManageBlockedCountry.Application\\Interfaces\\IBlockedCountry.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T15:15:14.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T15:15:14.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ManageBlockedCountry.Application.csproj",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\ManageBlockedCountry.Application.csproj",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\ManageBlockedCountry.Application.csproj",
@@ -140,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CountriesBlockedController.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManagedBlockedCountryApp\\Controllers\\CountriesBlockedController.cs",
               "RelativeDocumentMoniker": "ManagedBlockedCountryApp\\Controllers\\CountriesBlockedController.cs",
@@ -152,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LocationOfCountryService.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Infrastructure\\ExternalApiIntegration\\LocationOfCountryService.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Infrastructure\\ExternalApiIntegration\\LocationOfCountryService.cs",
@@ -160,12 +176,11 @@
               "RelativeToolTip": "ManageBlockedCountry.Infrastructure\\ExternalApiIntegration\\LocationOfCountryService.cs",
               "ViewState": "AgIAAF0AAAAAAAAAAAAYwCcBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T18:03:02.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T18:03:02.074Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ILocationOfCountry.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\Interfaces\\ILocationOfCountry.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\Interfaces\\ILocationOfCountry.cs",
@@ -177,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "FetchCountryLookupUsingIPGeolocation.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\Dtos\\FetchCountryLookupUsingIPGeolocation.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\Dtos\\FetchCountryLookupUsingIPGeolocation.cs",
@@ -189,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "FetchIPLookUPDto.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\Dtos\\FetchIPLookUPDto.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\Dtos\\FetchIPLookUPDto.cs",
@@ -201,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Country.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Domian\\Entities\\Country.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Domian\\Entities\\Country.cs",
@@ -213,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CountryDto.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\Dtos\\CountryDto.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\Dtos\\CountryDto.cs",
@@ -225,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CreateCountryDto.cs",
               "DocumentMoniker": "H:\\Assesment\\ManageBlockedCountryAPI(BD-Assignment)\\ManageBlockedCountry.Application\\Dtos\\CreateCountryDto.cs",
               "RelativeDocumentMoniker": "ManageBlockedCountry.Application\\Dtos\\CreateCountryDto.cs",
